@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
+
+body {
+    font-family: 'Roboto', cursive;
+  }
+
+.mainContainer{
+    width: 90%;
+    color: brown;
+}
+
+.recipeContainer{
+    float: left;
+    overflow: hidden;
+    border: 10px solid orange;
+    padding: 2%;
+}
+
+.sidebar{
+    color: blue;
+    float: right;
+    padding: 2%;
+    border: 10px solid yellow;
+}

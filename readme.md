@@ -9,6 +9,7 @@ This is based on the FreeCodeCamp challange project called **[Build a Recipe Box
 You will need to install the following using yarn or npm:
 * Either use [create-react-app](https://github.com/facebook/create-react-app "create react app") or you will need to setup the React environment yourself. ***Note: I have created a very basic React setup called [barebones-react](https://github.com/oclaros/barebones-react "barebones-react")***
 
+You will need css-loader and styles-loader for webpack to load/inject css
 ## Installing
 
 ## Run the app
