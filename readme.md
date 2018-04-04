@@ -12,7 +12,7 @@ You will need to install the following using yarn or npm:
 You will need css-loader and styles-loader for webpack to load/inject css
 
 ## Installing
-Because I use bootstrap 4, webpack.confi.js that I use from **barebones-react**, must be modified to remove the options in the css-loader. The result should look like 
+Because I use bootstrap 4, webpack.confi.js that I use from **barebones-react** must be modified to remove the options in the css-loader. The result should look like 
 ```
 {
   test: /\.css$/,
