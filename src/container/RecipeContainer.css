@@ -10,7 +10,6 @@ body {
 }
 
 .recipeContainer{
-    float: left;
     overflow: hidden;
     border: 10px solid orange;
     padding: 2%;
@@ -18,7 +17,6 @@ body {
 
 .sidebar{
     color: blue;
-    float: right;
     padding: 2%;
     border: 10px solid yellow;
 }

@@ -7,18 +7,4 @@ const Ingredient = props => (
     </div>
 )
 
-/*
-class Ingredient extends React.Component{
-
-    render(){
-        console.log("you have " + this.props.ingredient)
-        return(
-            <div>
-        {this.props.ingredient}
-    </div>
-        )
-    }
-    
-}
-*/
 export default Ingredient;
