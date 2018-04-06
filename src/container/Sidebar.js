@@ -1,15 +1,69 @@
-import React from 'react';
-import CssStyles from './Sidebar.css';
+import React, { Component } from "react";
+import CssStyles from "./Sidebar.css";
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from "reactstrap";
 
-const Sidebar = (props) => 
-    <aside className={CssStyles.sidebar}>
-        <ul>
-        {props.recipeNames ? 
-            props.recipeNames.map( (name, idx) => { return <li key={idx}>{name}</li> }) :
-            <p>no names!!!</p>
-        }
-        </ul>
-    </aside>
+class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ""
+    };
+    this.searchTermOnChangeHandler = this.searchTermOnChangeHandler.bind(this);
+  }
+  searchTermOnChangeHandler(event) {
+    this.setState({ searchTerm: event.target.value });
+  }
 
+  render() {
+    const { recipeNames } = this.props;
+    const data = recipeNames
+      .filter(
+        item =>
+          item
+            .toUpperCase()
+            .indexOf(this.state.searchTerm.toUpperCase()) >= 0
+      )
+      .map(i => {
+        return i;
+      });
+
+    return (
+      <aside className={CssStyles.sidebar}>
+        <div>
+          <InputGroup>
+            <InputGroupAddon addonType="prepend">
+              <i className="fa fa-search" />
+            </InputGroupAddon>
+            <Input
+              placeholder="search"
+              onChange={this.searchTermOnChangeHandler}
+              value={this.state.searchTerm}
+            />
+          </InputGroup>
+        </div>
+
+        {data.length > 0 ? (
+          <div>
+            <ul>
+              {data.map((item, idx) => {
+                return (
+                  <li
+                    className="recipe-name-list"
+                    key={idx}
+                    onClick={e => this.getRecipe(e, item.id)}
+                  >
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ) : (
+          <p>no data to select</p>
+        )}
+      </aside>
+    );
+  }
+}
 
 export default Sidebar;
