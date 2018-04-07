@@ -19,7 +19,7 @@ class Sidebar extends Component {
     const data = recipeNames
       .filter(
         item =>
-          item
+          item.name
             .toUpperCase()
             .indexOf(this.state.searchTerm.toUpperCase()) >= 0
       )
@@ -45,14 +45,14 @@ class Sidebar extends Component {
         {data.length > 0 ? (
           <div>
             <ul>
-              {data.map((item, idx) => {
+              {data.map((item) => {
                 return (
                   <li
                     className="recipe-name-list"
-                    key={idx}
-                    onClick={e => this.getRecipe(e, item.id)}
+                    key={item.id}
+                    onClick={e => this.props.getRecipe(e, item.id)}
                   >
-                    {item}
+                    {item.name}
                   </li>
                 );
               })}

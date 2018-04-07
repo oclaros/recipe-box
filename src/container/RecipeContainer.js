@@ -156,11 +156,14 @@ class RecipeContainer extends Component {
     super();
     this.state = {
       recipes: [],
-      recipeNames: []
+      recipeNames: [],
+      curRecipe : null
     };
 
     this.initRecipes = this.initRecipes.bind(this);
     this.setRecipeNames = this.setRecipeNames.bind(this);
+    this.getRecipe = this.getRecipe.bind(this);
+    this.renderCurrentRecipe = this.renderCurrentRecipe.bind(this);
   }
 
   componentDidMount() {
@@ -174,22 +177,43 @@ class RecipeContainer extends Component {
 
   setRecipeNames() {
     const names = recipes.map(recipe => {
-      return recipe.name;
+      return { id : recipe.id, name : recipe.name}
     });
     this.setState({ recipeNames: names });
   }
+  getRecipe(e, recipeId){
+    e.preventDefault();
+    const curRecipe = this.state.recipes.find(recipeItem =>{
+      if(recipeItem.id === recipeId) return recipeItem;}
+    );
+    this.setState({curRecipe : curRecipe});
+  }
 
-  render() {
+  renderCurrentRecipe(){
+    const {curRecipe} = this.state;
+    if (curRecipe){
+      return (
+        <div>
+        <MainHeader title={curRecipe.name} />
+        <IngredientList ingList={curRecipe.ingredientList} />
+        <InstructionList instrList={curRecipe.instructionList} />
+        </div>
+      )
+    } else{
+      return <p>Please select a recipe on the right or click the <strong>Add Recipe</strong> button to add a new recipe.</p>    
+    }
+  }
+
+  render() {  
     return (
       <Container className="mainContainer">
         <Row>
           <Col md="8" className="recipeContainer">
-            <MainHeader title="the title" />
-            <IngredientList ingList={ingList} />
-            <InstructionList instrList={instrList} />
+            {this.renderCurrentRecipe()}
           </Col>
           <Col md="4" className="sidebar">
-            <Sidebar recipeNames={this.state.recipeNames} />
+            <Sidebar recipeNames={this.state.recipeNames}
+            getRecipe = {this.getRecipe} />
           </Col>
         </Row>
       </Container>
