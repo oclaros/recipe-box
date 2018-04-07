@@ -45,7 +45,7 @@ class Sidebar extends Component {
         {data.length > 0 ? (
           <div>
             <ul>
-              {data.map((item) => {
+              {data.map(item => {
                 return (
                   <li
                     className="recipe-name-list"

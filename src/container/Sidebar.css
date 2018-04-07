@@ -1,14 +1,23 @@
-li{
-    list-style: none;
+li {
+  list-style: none;
 }
 
-.sidebar{
-    border: 5px solid #4ee41b;
-    padding: 2%;
+.sidebar {
+  border: 5px solid #4ee41b;
+  padding: 2%;
 }
-.input-group-prepend{
-    padding: 2%;
-    margin-right: 0.2rem;
-    font-size: 1.5rem;
-    color: rgb(185, 185, 185);
+.input-group-prepend {
+  padding: 2%;
+  margin-right: 0.2rem;
+  font-size: 1.5rem;
+  color: rgb(185, 185, 185);
+}
+
+.recipe-name-list {
+  font-family: "Mukta Mahee", sans-serif;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.recipe-name-list:hover {
+  font-weight: 700;
 }

@@ -157,7 +157,7 @@ class RecipeContainer extends Component {
     this.state = {
       recipes: [],
       recipeNames: [],
-      curRecipe : null
+      curRecipe: null
     };
 
     this.initRecipes = this.initRecipes.bind(this);
@@ -172,39 +172,44 @@ class RecipeContainer extends Component {
   }
 
   initRecipes() {
-    this.setState({ recipes: recipes});
+    this.setState({ recipes: recipes });
   }
 
   setRecipeNames() {
     const names = recipes.map(recipe => {
-      return { id : recipe.id, name : recipe.name}
+      return { id: recipe.id, name: recipe.name };
     });
     this.setState({ recipeNames: names });
   }
-  getRecipe(e, recipeId){
+  getRecipe(e, recipeId) {
     e.preventDefault();
-    const curRecipe = this.state.recipes.find(recipeItem =>{
-      if(recipeItem.id === recipeId) return recipeItem;}
-    );
-    this.setState({curRecipe : curRecipe});
+    const curRecipe = this.state.recipes.find(recipeItem => {
+      if (recipeItem.id === recipeId) return recipeItem;
+    });
+    this.setState({ curRecipe: curRecipe });
   }
 
-  renderCurrentRecipe(){
-    const {curRecipe} = this.state;
-    if (curRecipe){
+  renderCurrentRecipe() {
+    const { curRecipe } = this.state;
+    if (curRecipe) {
       return (
         <div>
-        <MainHeader title={curRecipe.name} />
-        <IngredientList ingList={curRecipe.ingredientList} />
-        <InstructionList instrList={curRecipe.instructionList} />
+          <MainHeader title={curRecipe.name} />
+          <IngredientList ingList={curRecipe.ingredientList} />
+          <InstructionList instrList={curRecipe.instructionList} />
         </div>
-      )
-    } else{
-      return <p>Please select a recipe on the right or click the <strong>Add Recipe</strong> button to add a new recipe.</p>    
+      );
+    } else {
+      return (
+        <p>
+          Please select a recipe on the right or click the{" "}
+          <strong>Add Recipe</strong> button to add a new recipe.
+        </p>
+      );
     }
   }
 
-  render() {  
+  render() {
     return (
       <Container className="mainContainer">
         <Row>
@@ -212,8 +217,10 @@ class RecipeContainer extends Component {
             {this.renderCurrentRecipe()}
           </Col>
           <Col md="4" className="sidebar">
-            <Sidebar recipeNames={this.state.recipeNames}
-            getRecipe = {this.getRecipe} />
+            <Sidebar
+              recipeNames={this.state.recipeNames}
+              getRecipe={this.getRecipe}
+            />
           </Col>
         </Row>
       </Container>
