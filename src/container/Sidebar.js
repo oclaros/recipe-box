@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CssStyles from "./Sidebar.css";
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from "reactstrap";
+import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from "reactstrap";
 
 class Sidebar extends Component {
   constructor(props) {
@@ -41,7 +41,6 @@ class Sidebar extends Component {
             />
           </InputGroup>
         </div>
-
         {data.length > 0 ? (
           <div>
             <ul>
@@ -61,6 +60,14 @@ class Sidebar extends Component {
         ) : (
           <p>no data to select</p>
         )}
+        <div className="add-recipe">
+          <Button
+            id="add-recipe-button"
+            color="primary"
+          >
+            Add Recipe
+          </Button>
+        </div>
       </aside>
     );
   }

@@ -3,8 +3,9 @@ li {
 }
 
 .sidebar {
-  border: 5px solid #4ee41b;
   padding: 2%;
+  background: #b3944b;
+  border-radius: 25px;
 }
 .input-group-prepend {
   padding: 2%;
@@ -16,8 +17,18 @@ li {
 .recipe-name-list {
   font-family: "Mukta Mahee", sans-serif;
   font-size: 1.4rem;
+  color: #5a2c2c;
   cursor: pointer;
 }
 .recipe-name-list:hover {
-  font-weight: 700;
+  color: #fff;
+}
+
+.fa-search{
+  color: #6f4417;
+}
+
+.add-recipe{
+  margin-top: 2%;
+  text-align: center;
 }

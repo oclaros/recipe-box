@@ -1,22 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto|Mukta+Mahee');
-
-body {
-    font-family: 'Roboto', cursive;
-  }
-
-.mainContainer{
-    width: 90%;
-    color: brown;
+.appTitle{
+    text-align: center;
+    color: #6f4417;
+    text-shadow: 0px 4px 5px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3)
 }
+
 
 .recipeContainer{
     overflow: hidden;
-    border: 10px solid orange;
     padding: 2%;
+    background: #d2bd81;
+    border-radius: 25px;
 }
 
-.sidebar{
-    color: blue;
-    padding: 2%;
-    border: 10px solid yellow;
+.recipeContainer h2{
+    color: #6b3019;
 }

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto|Mukta+Mahee');
+
+body{
+  background: #a59060;
+}
+hr{
+  border-width: 2px;
+}
+
+.btn-primary{
+  background-color: #b58a29;
+  border-color: #a97500;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+  background-color: #886618;
+  border-color: #614507;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{
+  background-color: #5d4615;
+    border-color: #695c29;
+}
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus{
+  background-color: #5d4615;
+  border-color: #695c29;
+}
+
+.btn-primary:focus, .btn-primary.focus{
+  box-shadow: 0 0 0 0.2rem rgba(74, 50, 6, 0.5);
+}
+
+.form-control{
+  background-color: #b38853;
+  color: #fff;
+  border: 1px solid #987550;
+}
+.form-control:focus{
+  color: #fff;
+  border-color: #6f5014;
+  background-color: #c1863d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(128, 66, 2, .75), 0 0 8px rgba(134, 66, 10, .6);
+  box-shadow: inset 0 1px 1px rgba(128, 66, 2, .75), 0 0 8px rgba(134, 66, 10, .6);
+}
+.form-control::placeholder{ 
+  color: #fff;
+  opacity: 1;
+}
+
+.i-row{
+  margin-top: 2%;
+}

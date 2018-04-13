@@ -164,6 +164,8 @@ class RecipeContainer extends Component {
     this.setRecipeNames = this.setRecipeNames.bind(this);
     this.getRecipe = this.getRecipe.bind(this);
     this.renderCurrentRecipe = this.renderCurrentRecipe.bind(this);
+    this.updateIngredient = this.updateIngredient.bind(this);
+    this.updateInstruction = this.updateInstruction.bind(this);
   }
 
   componentDidMount() {
@@ -188,14 +190,51 @@ class RecipeContainer extends Component {
     });
     this.setState({ curRecipe: curRecipe });
   }
-
+  /* We know that this ingredient is part of the current recipe. We do not need to pass the current recipe id back. */
+  updateIngredient(event, idx, ingredient) {
+    event.preventDefault();
+    if (!ingredient || idx < 0 || idx > this.state.curRecipe.ingredientList.length ) return;
+    let curRecipe = Object.assign({}, this.state.curRecipe);
+    let curIngLst = [...curRecipe.ingredientList];
+    curIngLst[idx] = ingredient;
+    curRecipe.ingredientList = curIngLst;
+    this.setState({curRecipe : curRecipe});
+  }
+  updateInstruction(event, idx, instruction) {
+    event.preventDefault();
+    if (!instruction || idx < 0 || idx > this.state.curRecipe.instructionList.length ) return;
+    let curRecipe = Object.assign({}, this.state.curRecipe);
+    let curInstLst = [...curRecipe.instructionList];
+    curInstLst[idx] = instruction;
+    curRecipe.instructionList = curInstLst;
+    this.setState({curRecipe : curRecipe});
+  }
+/*
+  updateObjectInArray(arr, idx, item){
+    return array.map( (curItem, idex) => {
+      if(index !== idx) {
+          // This isn't the item we care about - keep it as-is
+          return curItem;
+      }
+ 
+      // Otherwise, this is the one we want - return an updated value
+      return {
+          ...curItem,
+          ...item
+      }
+  }
+*/
   renderCurrentRecipe() {
     const { curRecipe } = this.state;
     if (curRecipe) {
       return (
         <div>
           <MainHeader title={curRecipe.name} />
-          <IngredientList ingList={curRecipe.ingredientList} />
+          <IngredientList
+            ingList={curRecipe.ingredientList}
+            updateIngredientHandler={this.updateIngredient}
+          />
+          <hr />
           <InstructionList instrList={curRecipe.instructionList} />
         </div>
       );
@@ -212,6 +251,8 @@ class RecipeContainer extends Component {
   render() {
     return (
       <Container className="mainContainer">
+        <h1 className="appTitle">Recipe Box</h1>
+        <hr />
         <Row>
           <Col md="8" className="recipeContainer">
             {this.renderCurrentRecipe()}
